@@ -20,11 +20,12 @@ class RolePermission(models.Model):
     id = models.AutoField(primary_key=True)
     role = models.ForeignKey(Role, on_delete=models.CASCADE, null=False, related_name='role') 
     # role = models.CharField(max_length=20, choices=ROLES)  # Role (staff, manager, admin)
-    model = models.CharField(max_length=50)  # Model (sales_order, purchase_order, etc.)
+    model = models.CharField(max_length=50)
     action = models.CharField(max_length=20, choices=ACTIONS)  # Action (create, view, update, delete)
+    is_active    = models.BooleanField(default=True) 
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=False, related_name='role_permissions_created') 
-    updated_at   = models.DateTimeField(null=True, blank=True)  # manually handled
+    updated_at   = models.DateTimeField(null=True, blank=True)
     updated_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, related_name='role_permissions_updated') 
 
     def __str__(self):
