@@ -2,7 +2,7 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework import status
 from rest_framework.decorators import action
-# from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 from datetime import datetime
 from product.models import Product
 from product.productSerializer import ProductSerializer
@@ -12,7 +12,7 @@ from django_inventory_management.response import DrfResponse
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = []
+    permission_classes = [IsAuthenticated]
     
     def list(self, request):
         product = Product.objects.all()
@@ -29,6 +29,7 @@ class ProductViewSet(ModelViewSet):
         product_serializer = self.get_serializer(data=request.data)
         if product_serializer.is_valid():
             user = self.request.user
+            print(user)
             product_serializer.save(created_by=user)
             return DrfResponse( 
                 data    = [product_serializer.data], 
@@ -107,8 +108,9 @@ class ProductViewSet(ModelViewSet):
         # product.delete()
         product_serializer = self.get_serializer(product, data= request.data)
         user = self.request.user
-        if product_serializer.is_valid():
-            product_serializer.save(updated_by= user, updated_at=datetime.utcnow(), is_active = 0)
+        # if product_serializer.is_valid():
+        print('stop')
+        product_serializer.save(updated_by= user, updated_at=datetime.utcnow(), is_active = 1)
         return DrfResponse( 
          
             status  = status.HTTP_204_NO_CONTENT, 
