@@ -2,8 +2,8 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework import status
 from rest_framework.decorators import action
-from rest_framework.permissions import IsAuthenticated
-
+# from rest_framework.permissions import IsAuthenticated
+from datetime import datetime
 from category.models import Category
 from category.categorySerializer import CategorySerializer
 from django_inventory_management.response import DrfResponse
@@ -12,11 +12,12 @@ from django_inventory_management.response import DrfResponse
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = []
     
     def list(self, request):
         category = Category.objects.all()
         category_serializer = CategorySerializer(category, many=True)
+        print(category_serializer)
         return DrfResponse(
             data    = category_serializer.data, 
             status  = status.HTTP_200_OK, 
@@ -27,7 +28,8 @@ class CategoryViewSet(ModelViewSet):
     def create(self, request):
         category_serializer = self.get_serializer(data=request.data)
         if category_serializer.is_valid():
-            category_serializer.save()
+            user = self.request.user
+            category_serializer.save(created_by=user)
             return DrfResponse( 
                 data    = [category_serializer.data], 
                 status  = status.HTTP_201_CREATED, 
@@ -58,8 +60,9 @@ class CategoryViewSet(ModelViewSet):
     def update(self, request, pk=None):
         category = self.get_object()
         category_serializer = self.get_serializer(category, data= request.data)
+        user = self.request.user
         if category_serializer.is_valid():
-            category_serializer.save()
+            category_serializer.save(updated_by= user, updated_at=datetime.utcnow())
 
             return DrfResponse( 
                 data    = [category_serializer.data], 
@@ -101,7 +104,11 @@ class CategoryViewSet(ModelViewSet):
 
     def destroy(self, request, pk=None):
         category = self.get_object()
-        category.delete()
+        # category.delete()
+        category_serializer = self.get_serializer(category, data= request.data)
+        user = self.request.user
+        if category_serializer.is_valid():
+            category_serializer.save(updated_by= user, updated_at=datetime.utcnow(), is_active = 0)
         return DrfResponse( 
          
             status  = status.HTTP_204_NO_CONTENT, 
