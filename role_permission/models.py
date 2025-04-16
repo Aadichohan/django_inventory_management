@@ -30,3 +30,7 @@ class RolePermission(models.Model):
 
     def __str__(self):
         return f"{self.role} - {self.model} - {self.action}"
+    
+
+    class Meta:
+        db_table = 'role_permission' 

@@ -15,7 +15,13 @@ class RolePermissionViewSet(ModelViewSet):
     permission_classes = []
     
     def list(self, request):
-        role_permission = RolePermission.objects.all()
+        role_id = request.query_params.get('role_id', None)
+
+        if role_id:
+            role_permission = RolePermission.objects.filter(role_id=role_id)
+        else:
+             role_permission = RolePermission.objects.all()
+        # role_permission = RolePermission.objects.all()
         role_permission_serializer = RolePermissionSerializer(role_permission, many=True)
         print(role_permission_serializer)
         return DrfResponse(
@@ -27,6 +33,8 @@ class RolePermissionViewSet(ModelViewSet):
 
     def create(self, request):
         role_permission_serializer = self.get_serializer(data=request.data)
+        print(request.data)
+        print(role_permission_serializer)
         if role_permission_serializer.is_valid():
             user = self.request.user
             role_permission_serializer.save(created_by=user)
