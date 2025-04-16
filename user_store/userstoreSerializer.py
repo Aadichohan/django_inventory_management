@@ -18,4 +18,4 @@ class UserStoreSerializer(serializers.ModelSerializer):
             'id', 'user_id','user_data', 'store_id', 'store_data',
             'is_active', 'created_at','created_by', 'updated_at', 'updated_by'
         ]
-        read_only_fields = ['created_at']
+        read_only_fields = ['created_at', 'created_by']

@@ -18,7 +18,7 @@ class PurchaseOrder(models.Model):
     updated_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, related_name='purchase_order_updated')
 
     def __str__(self):
-        return f'{self.supplier.name} - {self.supplier.contact_no} | {self.product.title}'
+        return f' supplier.name: {self.supplier.name} | supplier.contact_no: {self.supplier.contact_no} | product.title : {self.product.title}'
     
     class Meta:
         db_table = 'purchase_order' 

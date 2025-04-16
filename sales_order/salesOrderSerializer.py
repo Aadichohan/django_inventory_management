@@ -9,7 +9,6 @@ class StoreProductSerializer(serializers.ModelSerializer):
     customer_id = serializers.CharField()
     product_id  = serializers.CharField()
 
-    # ✅ READ using nested object
     customer_data = CustomerSerializer(source='customer', read_only=True)
     product_data  = ProductSerializer(source='product', read_only=True)
 
@@ -19,4 +18,4 @@ class StoreProductSerializer(serializers.ModelSerializer):
             'id', 'customer_id','customer_data','product_id','product_data', 'quantity', 'total_price',
             'is_active', 'created_at','created_by', 'updated_at', 'updated_by'
         ]
-        read_only_fields = ['created_at']
+        read_only_fields = ['created_at', 'created_by']

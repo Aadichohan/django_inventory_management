@@ -18,4 +18,4 @@ class StoreProductSerializer(serializers.ModelSerializer):
             'id', 'product_id','product_data', 'store_id' 'store_data', 'quantity', 'custom_price', 'description'
             'is_active', 'created_at','created_by', 'updated_at', 'updated_by'
         ]
-        read_only_fields = ['created_at']
+        read_only_fields = ['created_at', 'created_by']
