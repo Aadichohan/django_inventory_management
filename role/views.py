@@ -7,12 +7,13 @@ from datetime import datetime
 from role.models import Role
 from role.roleSerializer import RoleSerializer
 from django_inventory_management.response import DrfResponse
+from role_permission.role_based_permission import RoleBasedPermission
 
 
 class RoleViewSet(ModelViewSet):
     queryset = Role.objects.all()
     serializer_class = RoleSerializer
-    permission_classes = []
+    permission_classes = [RoleBasedPermission]
     
     def list(self, request):
         role = Role.objects.all()

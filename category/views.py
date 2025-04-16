@@ -7,12 +7,13 @@ from datetime import datetime
 from category.models import Category
 from category.categorySerializer import CategorySerializer
 from django_inventory_management.response import DrfResponse
+from role_permission.role_based_permission import RoleBasedPermission
 
 
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    permission_classes = []
+    permission_classes = [RoleBasedPermission]
     
     def list(self, request):
         category = Category.objects.all()

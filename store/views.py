@@ -7,12 +7,12 @@ from datetime import datetime
 from store.models import Store
 from store.storeSerializer import StoreSerializer
 from django_inventory_management.response import DrfResponse
-
+from role_permission.role_based_permission import RoleBasedPermission
 
 class StoreViewSet(ModelViewSet):
     queryset = Store.objects.all()
     serializer_class = StoreSerializer
-    permission_classes = []
+    permission_classes = [RoleBasedPermission]
     
     def list(self, request):
         store = Store.objects.all()

@@ -7,12 +7,13 @@ from datetime import datetime
 from product.models import Product
 from product.productSerializer import ProductSerializer
 from django_inventory_management.response import DrfResponse
+from role_permission.role_based_permission import RoleBasedPermission
 
 
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, RoleBasedPermission]
     
     def list(self, request):
         product = Product.objects.all()
