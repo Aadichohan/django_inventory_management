@@ -5,8 +5,10 @@ from rest_framework import status
 
 from user.models import User
 from user.userSerializer import UserSerializer
-from django_inventory_management.response import DrfResponse
+from user.ResetPasswordSerializer import ResetPasswordSerializer
 
+from django_inventory_management.response import DrfResponse
+from role_permission.role_based_permission import RoleBasedPermission
 
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
@@ -15,17 +17,19 @@ class UserViewSet(ModelViewSet):
     def get_permissions(self):
         if self.action == 'register':
             return [AllowAny()]
-        return [IsAuthenticated()]
+        return [IsAuthenticated(), RoleBasedPermission()]
 
     @action(detail=False, methods=['post'], url_path='register')
     def register(self, request):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
+            is_staff = serializer.validated_data.get('is_staff', False)
             user = User.objects.create_user(
                 email=serializer.validated_data['email'],
                 name=serializer.validated_data['name'],
                 password=request.data.get('password'),
-                role_id=serializer.validated_data['role_id']
+                role_id=serializer.validated_data['role_id'],
+                is_staff=is_staff
             )
             return DrfResponse(
                 data=[UserSerializer(user).data],
@@ -42,6 +46,41 @@ class UserViewSet(ModelViewSet):
             response={"response": "User registration failed"},
             headers={}
         ).to_json()
+
+    @action(detail=True, methods=['post'], url_path='reset-password')
+    def reset_password(self, request, pk=None):
+        try:
+            user = self.get_object()
+        except User.DoesNotExist:
+            return DrfResponse(
+                data=[],
+                status=status.HTTP_404_NOT_FOUND,
+                response={"response": "User not found"},
+                error={"error": "Invalid user"},
+                headers={}
+            ).to_json()
+
+        serializer = ResetPasswordSerializer(data=request.data)
+        if serializer.is_valid():
+            new_password = serializer.validated_data['new_password']
+            user.set_password(new_password)
+            user.save()
+            return DrfResponse(
+                data=[UserSerializer(user).data],
+                status=status.HTTP_200_OK,
+                response={"response": "Password reset successfully"},
+                error={},
+                headers={}
+            ).to_json()
+
+        return DrfResponse(
+            data=[],
+            status=status.HTTP_400_BAD_REQUEST,
+            error=serializer.errors,
+            response={"response": "Password reset failed"},
+            headers={}
+        ).to_json()
+    
 
     def list(self, request):
         users = User.objects.all()
@@ -66,7 +105,13 @@ class UserViewSet(ModelViewSet):
     def create(self, request):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
+            password = request.data.get('password', None)
+
             user = serializer.save(created_by=request.user)
+
+            if password:
+                user.set_password(password)  # Hash the password
+                user.save()
             return DrfResponse(
                 data=[UserSerializer(user).data],
                 status=status.HTTP_201_CREATED,
@@ -86,7 +131,12 @@ class UserViewSet(ModelViewSet):
         user = self.get_object()
         serializer = self.get_serializer(user, data=request.data)
         if serializer.is_valid():
+            
             serializer.save(updated_by=request.user)
+            password = request.data.get('password', None)
+            if password:
+                user.set_password(password)  # Hash the password
+                user.save()
             return DrfResponse(
                 data=[serializer.data],
                 status=status.HTTP_200_OK,

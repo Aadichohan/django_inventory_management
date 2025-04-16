@@ -2,3 +2,11 @@
     "email": "admin@gmail.com",
     "password": "admin@123"
 }
+
+register payload
+{
+  "email": "manager_1@gmail.com",
+  "name": "Manager User 1",
+  "password": "admin@123",
+  "role_id": 2
+}

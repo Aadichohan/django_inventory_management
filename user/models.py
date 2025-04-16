@@ -26,6 +26,7 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.db import models
 from role.models import Role
+from django.conf import settings
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
@@ -54,8 +55,11 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='created_users')
-    updated_at = models.DateTimeField(auto_now=True)
-    updated_by = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='updated_users')
+    # updated_at = models.DateTimeField(auto_now=True)
+    # updated_by = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='updated_users')
+    
+    updated_at  = models.DateTimeField(null=True, blank=True)  # manually handled
+    updated_by  = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='updated_users', on_delete=models.SET_NULL, null=True, blank=True)
 
     objects = CustomUserManager()
 
