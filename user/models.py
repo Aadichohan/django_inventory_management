@@ -25,7 +25,7 @@
 # accounts/models.py
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.db import models
-
+from role.models import Role
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
@@ -44,7 +44,10 @@ class CustomUserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     name = models.CharField(max_length=100)
-    role_id = models.CharField(max_length=20, choices=[('admin', 'Admin'), ('manager', 'Manager'), ('staff', 'Staff')])
+    # role_id = models.CharField(max_length=20, choices=[('admin', 'Admin'), ('manager', 'Manager'), ('staff', 'Staff')])
+    # role = models.ForeignKey('Role', on_delete=models.SET_NULL, null=True, blank=True)
+    role = models.ForeignKey(Role, on_delete=models.CASCADE, related_name='user_role', default=3)
+
 
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)

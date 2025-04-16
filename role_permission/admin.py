@@ -1,3 +1,5 @@
 from django.contrib import admin
+from role_permission.models import RolePermission
 
-# Register your models here.
+admin.site.register(RolePermission)
+

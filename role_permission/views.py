@@ -7,12 +7,12 @@ from datetime import datetime
 from role_permission.models import RolePermission
 from role_permission.rolePermissionSerializer import RolePermissionSerializer
 from django_inventory_management.response import DrfResponse
-
+from role_permission.role_based_permission import RoleBasedPermission
 
 class RolePermissionViewSet(ModelViewSet):
     queryset = RolePermission.objects.all()
     serializer_class = RolePermissionSerializer
-    permission_classes = []
+    permission_classes = [RoleBasedPermission]
     
     def list(self, request):
         role_id = request.query_params.get('role_id', None)
@@ -23,7 +23,7 @@ class RolePermissionViewSet(ModelViewSet):
              role_permission = RolePermission.objects.all()
         # role_permission = RolePermission.objects.all()
         role_permission_serializer = RolePermissionSerializer(role_permission, many=True)
-        print(role_permission_serializer)
+        # print('role_permission_serializer list: ',role_permission_serializer)
         return DrfResponse(
             data    = role_permission_serializer.data, 
             status  = status.HTTP_200_OK, 
@@ -33,8 +33,8 @@ class RolePermissionViewSet(ModelViewSet):
 
     def create(self, request):
         role_permission_serializer = self.get_serializer(data=request.data)
-        print(request.data)
-        print(role_permission_serializer)
+        # print('RolePermissionViewSet request.data ',request.data)
+        # print('role_permission_serializer ', role_permission_serializer)
         if role_permission_serializer.is_valid():
             user = self.request.user
             role_permission_serializer.save(created_by=user)

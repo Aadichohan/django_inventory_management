@@ -17,7 +17,7 @@ class RoleViewSet(ModelViewSet):
     def list(self, request):
         role = Role.objects.all()
         role_serializer = RoleSerializer(role, many=True)
-        print(role_serializer)
+        # print('role_serializer: ',role_serializer)
         return DrfResponse(
             data    = role_serializer.data, 
             status  = status.HTTP_200_OK, 
