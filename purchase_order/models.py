@@ -2,14 +2,14 @@ from django.db import models
 from django.conf import settings
 from supplier.models import Supplier
 from product.models import Product
-from store.models import Store  # <- make sure you import this
+from store.models import Store
 
 class PurchaseOrder(models.Model):
     id = models.AutoField(primary_key=True)
     
     supplier = models.ForeignKey(Supplier, on_delete=models.SET_NULL, null=True, related_name='purchase_order_supplier')
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, related_name='purchase_order_product')
-    store   = models.ForeignKey(Store, on_delete=models.SET_NULL, null=True, related_name='purchase_order_store')  # ✅ added field
+    store   = models.ForeignKey(Store, on_delete=models.SET_NULL, null=True, related_name='purchase_order_store')
 
     quantity = models.IntegerField()
     total_price = models.DecimalField(max_digits=10, decimal_places=2)

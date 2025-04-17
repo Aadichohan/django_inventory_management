@@ -51,6 +51,7 @@ class PurchaseOrderViewSet(ModelViewSet):
                 store_product.sell_price = unit_price + (unit_price * Decimal('0.10'))
                 store_product.updated_by = user
                 store_product.updated_at = datetime.utcnow()
+                print('purchase order store_product', store_product)
                 store_product.save()
 
                 # ✅ Return yahan add karo
