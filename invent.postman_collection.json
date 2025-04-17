@@ -400,7 +400,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"product_id\": \"1\",\r\n  \"store_id\": \"2\",\r\n  \"quantity\": 50,\r\n  \"custom_price\": 1499.99,\r\n  \"description\": \"Limited edition packaging for Kaarchi Fb Area store\",\r\n  \"is_active\": true\r\n}\r\n",
+							"raw": "{\r\n  \"product_id\": \"1\",\r\n  \"store_id\": \"2\",\r\n  \"quantity\": 50,\r\n  \"purchase_price\": 1499.99,\r\n   \"sell_price\": 1499.99,\r\n  \"description\": \"Limited edition packaging for Kaarchi Fb Area store\",\r\n  \"is_active\": true\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1216,7 +1216,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/supplier/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supplier",
+								""
+							]
 						}
 					},
 					"response": []
@@ -1227,7 +1237,18 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/supplier/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supplier",
+								"1",
+								""
+							]
 						}
 					},
 					"response": []
@@ -1237,8 +1258,27 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Sayyam\",\r\n    \"contact_no\": \"+923001234567\",\r\n    \"address\": \"123 Main Street, City, Country\",\r\n    \"is_active\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/supplier/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supplier",
+								""
+							]
 						}
 					},
 					"response": []
@@ -1248,8 +1288,28 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Sayyam Rajput\",\r\n    \"contact_no\": \"+923001234567\",\r\n    \"address\": \"123 Main Street, City, Country\",\r\n    \"is_active\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/supplier/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supplier",
+								"1",
+								""
+							]
 						}
 					},
 					"response": []
@@ -1272,11 +1332,33 @@
 			"item": [
 				{
 					"name": "getAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/purchase_order/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_order",
+								""
+							]
 						}
 					},
 					"response": []
@@ -1287,7 +1369,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/purchase_order/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_order",
+								"5"
+							]
 						}
 					},
 					"response": []
@@ -1297,8 +1389,27 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"supplier_id\": \"1\",\r\n  \"product_id\": \"1\",\r\n  \"store_id\": \"1\",\r\n  \"quantity\": 10,\r\n  \"unit_price\": 12.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/purchase_order/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_order",
+								""
+							]
 						}
 					},
 					"response": []
@@ -1309,7 +1420,17 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/purchase_order/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_order",
+								""
+							]
 						}
 					},
 					"response": []
@@ -1320,7 +1441,17 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/purchase_order/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_order",
+								""
+							]
 						}
 					},
 					"response": []
@@ -1336,7 +1467,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/sales_order/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"sales_order",
+								""
+							]
 						}
 					},
 					"response": []
@@ -1347,7 +1488,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/sales_order/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"sales_order",
+								"3"
+							]
 						}
 					},
 					"response": []
@@ -1357,8 +1508,27 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customer_id\": \"1\",\r\n  \"product_id\": \"1\",\r\n  \"store_id\": \"1\",\r\n  \"quantity\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/sales_order/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"sales_order",
+								""
+							]
 						}
 					},
 					"response": []
@@ -1368,8 +1538,28 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customer_id\": \"1\",\r\n  \"product_id\": \"1\",\r\n  \"store_id\": \"1\",\r\n  \"quantity\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/sales_order/3/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"sales_order",
+								"3",
+								""
+							]
 						}
 					},
 					"response": []
