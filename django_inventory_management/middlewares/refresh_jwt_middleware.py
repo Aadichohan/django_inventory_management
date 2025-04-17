@@ -20,8 +20,11 @@ class RefreshJWTMiddleware(MiddlewareMixin):
             try:
                 validated_token = AccessToken(access_token)
                 user = JWTAuthentication().get_user(validated_token)
+                print('token user: ', validated_token)
+                print('token user: ', user)
                 request.user = user
-            except TokenError:
+            except TokenError as e:
+                print('TokenError ', e)
                 # Access Token expired, try refresh
                 if refresh_token:
                     try:

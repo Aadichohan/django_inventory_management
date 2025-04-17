@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "6bbbd0ce-9467-4147-800f-f1c2dc70d7af",
+		"_postman_id": "0883c526-8131-4e0a-a46c-e8fc1852275e",
 		"name": "invent",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28512073"
+		"_exporter_id": "28049622"
 	},
 	"item": [
 		{
@@ -16,7 +16,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0ODEwMzI0LCJpYXQiOjE3NDQ4MDg1MjQsImp0aSI6IjUwYjdkZjJmZWVjNjQ1ZjNiNjg4MmQ2OWNkOGMwZmVmIiwidXNlcl9pZCI6MX0.zTfjbzJiOzgQy8pBcPwCjh9vkIgIabHVDcHqMrhswvw",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0ODg0NzA0LCJpYXQiOjE3NDQ4ODQ1ODQsImp0aSI6IjNkYmJlMTBmZGYwZTRhMWU4Yjc5ZjM3YjhjMmI0ZmI4IiwidXNlcl9pZCI6MX0.hXQYX0kAFdL6TLDdZKET6v-LZyvEbkuTLCzlIP9MKXE",
+								"type": "text"
+							},
+							{
+								"key": "X-Refresh-Token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0ODg5ODQ1LCJpYXQiOjE3NDQ4ODk3MjUsImp0aSI6ImI2Njk5MzZlNTgxNTQ3M2JhNzJmN2M5ZTFhMWMxNTg2IiwidXNlcl9pZCI6MX0.uqTQBpcDmKja_DvxhOEV10Lcu-iDmbzWN1ZmSayKCN8",
 								"type": "text"
 							}
 						],
@@ -40,7 +45,18 @@
 					"name": "getAllOne",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "X-Refresh-Token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0NDk3MDk4NCwiaWF0IjoxNzQ0ODg0NTg0LCJqdGkiOiJlY2U5NTUyMGE0NWY0ODEzYTI4N2MyMGU5ZTExODYwNyIsInVzZXJfaWQiOjF9.kI961jzMIiOHwuJdBEviSGskHe3oON7TUZpE3EoJ_3w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0ODg0NzA0LCJpYXQiOjE3NDQ4ODQ1ODQsImp0aSI6IjNkYmJlMTBmZGYwZTRhMWU4Yjc5ZjM3YjhjMmI0ZmI4IiwidXNlcl9pZCI6MX0.hXQYX0kAFdL6TLDdZKET6v-LZyvEbkuTLCzlIP9MKXE",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:8000/api/category/2",
 							"protocol": "http",
@@ -91,7 +107,10 @@
 					"name": "update",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -99,7 +118,10 @@
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -112,7 +134,33 @@
 					"name": "getAll",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [
+							{
+								"key": "X-Refresh-Token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0NDk4MDgzNywiaWF0IjoxNzQ0ODk0NDM3LCJqdGkiOiJmZWE4NDBjOTQ0NWM0MmI5ODU0NjQyMGQyN2I5YWJhNiIsInVzZXJfaWQiOjF9.WKQochzntkqO7QWvUmf5eLF5LC7GkpZ4kzwzDJqgfQM",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0ODg5ODQ1LCJpYXQiOjE3NDQ4ODk3MjUsImp0aSI6ImI2Njk5MzZlNTgxNTQ3M2JhNzJmN2M5ZTFhMWMxNTg2IiwidXNlcl9pZCI6MX0.uqTQBpcDmKja_DvxhOEV10Lcu-iDmbzWN1ZmSayKCN8",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/product/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"product",
+								""
+							]
+						}
 					},
 					"response": []
 				},
@@ -120,7 +168,10 @@
 					"name": "getAllOne",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -128,7 +179,10 @@
 					"name": "save",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -136,7 +190,10 @@
 					"name": "update",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -144,7 +201,10 @@
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -157,7 +217,10 @@
 					"name": "getAll",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -165,7 +228,10 @@
 					"name": "getAllOne",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -173,7 +239,10 @@
 					"name": "save",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -181,7 +250,10 @@
 					"name": "update",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -189,7 +261,10 @@
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -202,7 +277,10 @@
 					"name": "getAll",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -210,7 +288,10 @@
 					"name": "getAllOne",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -218,7 +299,10 @@
 					"name": "save",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -226,7 +310,10 @@
 					"name": "update",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -234,7 +321,10 @@
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -374,7 +464,10 @@
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -571,7 +664,10 @@
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -584,7 +680,10 @@
 					"name": "getAll",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -592,7 +691,10 @@
 					"name": "getAllOne",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -738,7 +840,10 @@
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -751,7 +856,10 @@
 					"name": "getAll",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -759,7 +867,10 @@
 					"name": "getAllOne",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -767,7 +878,10 @@
 					"name": "save",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -775,7 +889,10 @@
 					"name": "update",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -783,7 +900,10 @@
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -796,7 +916,10 @@
 					"name": "getAll",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -804,7 +927,10 @@
 					"name": "getAllOne",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -812,7 +938,10 @@
 					"name": "save",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -820,7 +949,10 @@
 					"name": "update",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -828,7 +960,10 @@
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -841,7 +976,10 @@
 					"name": "getAll",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -849,7 +987,10 @@
 					"name": "getAllOne",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -857,7 +998,10 @@
 					"name": "save",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -865,7 +1009,10 @@
 					"name": "update",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -873,7 +1020,10 @@
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -886,7 +1036,10 @@
 					"name": "getAll",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -894,7 +1047,10 @@
 					"name": "getAllOne",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -902,7 +1058,10 @@
 					"name": "save",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -910,7 +1069,10 @@
 					"name": "update",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -918,7 +1080,10 @@
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -931,7 +1096,10 @@
 					"name": "getAll",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -939,7 +1107,10 @@
 					"name": "getAllOne",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -947,7 +1118,10 @@
 					"name": "save",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -955,7 +1129,10 @@
 					"name": "update",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -963,7 +1140,10 @@
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -1037,7 +1217,10 @@
 					"name": "save",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -1045,7 +1228,10 @@
 					"name": "update",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -1053,11 +1239,71 @@
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"// Define endpoints you want to exclude\r",
+					"const excludedEndpoints = [\r",
+					"    '/api/auth/login',\r",
+					"    '/api/auth/signup',\r",
+					"    '/api/token/refresh',\r",
+					"    '/api/token/'\r",
+					"];\r",
+					"\r",
+					"// Extract request path (excluding domain)\r",
+					"const requestUrl = pm.request.url.getPath();\r",
+					"\r",
+					"if (!excludedEndpoints.includes(requestUrl)) {\r",
+					"    console.log(pm.environment)\r",
+					"    pm.request.headers.add({\r",
+					"        key: \"Authorization\",\r",
+					"        value: `Bearer ${pm.environment.get(\"access_token\")}`\r",
+					"    });\r",
+					"\r",
+					"    pm.request.headers.add({\r",
+					"        key: \"X-Refresh-Token\",\r",
+					"        value: pm.environment.get(\"refresh_token\")\r",
+					"    });\r",
+					"}\r",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "X-Refresh-Token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0ODg5ODQ1LCJpYXQiOjE3NDQ4ODk3MjUsImp0aSI6ImI2Njk5MzZlNTgxNTQ3M2JhNzJmN2M5ZTFhMWMxNTg2IiwidXNlcl9pZCI6MX0.uqTQBpcDmKja_DvxhOEV10Lcu-iDmbzWN1ZmSayKCN8",
+			"type": "string"
+		},
+		{
+			"key": "Authorization",
+			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0ODg5ODQ1LCJpYXQiOjE3NDQ4ODk3MjUsImp0aSI6ImI2Njk5MzZlNTgxNTQ3M2JhNzJmN2M5ZTFhMWMxNTg2IiwidXNlcl9pZCI6MX0.uqTQBpcDmKja_DvxhOEV10Lcu-iDmbzWN1ZmSayKCN8",
+			"type": "string"
 		}
 	]
 }
