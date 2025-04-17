@@ -6,7 +6,7 @@ from category.models import Category
 class Product(models.Model):
     title       = models.CharField(max_length=255)
     sku         = models.CharField(max_length=100, unique=True)
-    price       = models.DecimalField(max_digits=10, decimal_places=2)
+    unit_price  = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField(max_length=500, null=True, blank=True)
     category    = models.ForeignKey(
         Category, related_name='product_category',
