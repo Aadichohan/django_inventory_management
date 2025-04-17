@@ -4,7 +4,7 @@ from purchase_order.models import PurchaseOrder
 from product.productSerializer import ProductSerializer
 from supplier.supplierSerializer import SupplierSerializer
 
-class StoreProductSerializer(serializers.ModelSerializer):
+class PurchaseOrderSerializer(serializers.ModelSerializer):
 
     supplier_id = serializers.CharField()
     product_id  = serializers.CharField()

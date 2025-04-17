@@ -4,7 +4,7 @@ from sales_order.models import SalesOrder
 from product.productSerializer import ProductSerializer
 from customer.customerSerializer import CustomerSerializer
 
-class StoreProductSerializer(serializers.ModelSerializer):
+class SalesOrderSerializer(serializers.ModelSerializer):
 
     customer_id = serializers.CharField()
     product_id  = serializers.CharField()
