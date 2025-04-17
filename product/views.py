@@ -7,7 +7,7 @@ from datetime import datetime
 from product.models import Product
 from product.productSerializer import ProductSerializer
 from django_inventory_management.response import DrfResponse
-from role_permission.old_role_based_permission import RoleBasedPermission
+from role_permission.role_based_permission import RoleBasedPermission
 
 
 class ProductViewSet(ModelViewSet):
@@ -18,7 +18,7 @@ class ProductViewSet(ModelViewSet):
     def list(self, request):
         product = Product.objects.all()
         product_serializer = ProductSerializer(product, many=True)
-        print(product_serializer)
+        # print(product_serializer)
         return DrfResponse(
             data    = product_serializer.data, 
             status  = status.HTTP_200_OK, 
