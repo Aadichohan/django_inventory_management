@@ -16,6 +16,7 @@ class SalesOrder(models.Model):
     is_active    = models.BooleanField(default=True) 
     created_at  = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=False, related_name='sales_order_created')
+    # updated_at   = models.DateTimeField(null=True, blank=True)  # manually handled
     updated_at   = models.DateTimeField(null=True, blank=True)  # manually handled
     updated_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, related_name='sales_order_updated')
 
