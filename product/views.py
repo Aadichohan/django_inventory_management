@@ -7,7 +7,7 @@ from datetime import datetime
 from product.models import Product
 from product.productSerializer import ProductSerializer
 from django_inventory_management.response import DrfResponse
-from role_permission.role_based_permission import RoleBasedPermission
+from role_permission.old_role_based_permission import RoleBasedPermission
 
 
 class ProductViewSet(ModelViewSet):

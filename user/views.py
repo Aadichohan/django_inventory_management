@@ -8,7 +8,7 @@ from user.userSerializer import UserSerializer
 from user.ResetPasswordSerializer import ResetPasswordSerializer
 
 from django_inventory_management.response import DrfResponse
-from role_permission.role_based_permission import RoleBasedPermission
+from role_permission.old_role_based_permission import RoleBasedPermission
 
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all()

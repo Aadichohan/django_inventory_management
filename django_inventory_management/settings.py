@@ -63,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_inventory_management.middlewares.refresh_jwt_middleware.RefreshJWTMiddleware',
 ]
 
 ROOT_URLCONF = 'django_inventory_management.urls'
@@ -149,7 +150,7 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=2),
 
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 
