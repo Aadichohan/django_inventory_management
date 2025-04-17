@@ -9,7 +9,7 @@ from customer.customerSerializer import CustomerSerializer
 from django_inventory_management.response import DrfResponse
 from role_permission.role_based_permission import RoleBasedPermission
 
-class StoreViewSet(ModelViewSet):
+class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
     permission_classes = [RoleBasedPermission]

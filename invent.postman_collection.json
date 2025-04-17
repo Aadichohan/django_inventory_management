@@ -13,18 +13,7 @@
 					"name": "getAll",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0ODg0NzA0LCJpYXQiOjE3NDQ4ODQ1ODQsImp0aSI6IjNkYmJlMTBmZGYwZTRhMWU4Yjc5ZjM3YjhjMmI0ZmI4IiwidXNlcl9pZCI6MX0.hXQYX0kAFdL6TLDdZKET6v-LZyvEbkuTLCzlIP9MKXE",
-								"type": "text"
-							},
-							{
-								"key": "X-Refresh-Token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0ODg5ODQ1LCJpYXQiOjE3NDQ4ODk3MjUsImp0aSI6ImI2Njk5MzZlNTgxNTQ3M2JhNzJmN2M5ZTFhMWMxNTg2IiwidXNlcl9pZCI6MX0.uqTQBpcDmKja_DvxhOEV10Lcu-iDmbzWN1ZmSayKCN8",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"url": {
 							"raw": "http://localhost:8000/api/category/",
 							"protocol": "http",
@@ -219,7 +208,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/store/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								""
+							]
 						}
 					},
 					"response": []
@@ -230,7 +229,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/store/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"1"
+							]
 						}
 					},
 					"response": []
@@ -240,8 +249,27 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Millenzy Karachi FB Area Outlet\",\r\n  \"location\": \"Gulberg, Karachi\",\r\n  \"description\": \"Main branch of Millenzy for perfumes and personal care products.\",\r\n  \"is_active\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/store/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								""
+							]
 						}
 					},
 					"response": []
@@ -251,8 +279,28 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Millenzy Karachi Outlet\",\r\n  \"location\": \"Gulberg, Karachi\",\r\n  \"description\": \"Main branch of Millenzy for perfumes and personal care products.\",\r\n  \"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/store/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"1",
+								""
+							]
 						}
 					},
 					"response": []
@@ -279,7 +327,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/store_product/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store_product",
+								""
+							]
 						}
 					},
 					"response": []
@@ -290,7 +348,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/store_product/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store_product",
+								"1"
+							]
 						}
 					},
 					"response": []
@@ -300,8 +368,27 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"product_id\": \"1\",\r\n  \"store_id\": \"2\",\r\n  \"quantity\": 50,\r\n  \"custom_price\": 1499.99,\r\n  \"description\": \"Limited edition packaging for Kaarchi store\",\r\n  \"is_active\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/store_product/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store_product",
+								""
+							]
 						}
 					},
 					"response": []
@@ -311,8 +398,28 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"product_id\": \"1\",\r\n  \"store_id\": \"2\",\r\n  \"quantity\": 50,\r\n  \"custom_price\": 1499.99,\r\n  \"description\": \"Limited edition packaging for Kaarchi Fb Area store\",\r\n  \"is_active\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/store_product/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store_product",
+								"1",
+								""
+							]
 						}
 					},
 					"response": []
@@ -487,7 +594,8 @@
 							{
 								"key": "Authorization",
 								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0ODEwMzI0LCJpYXQiOjE3NDQ4MDg1MjQsImp0aSI6IjUwYjdkZjJmZWVjNjQ1ZjNiNjg4MmQ2OWNkOGMwZmVmIiwidXNlcl9pZCI6MX0.zTfjbzJiOzgQy8pBcPwCjh9vkIgIabHVDcHqMrhswvw",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
@@ -858,7 +966,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/user_store/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user_store",
+								""
+							]
 						}
 					},
 					"response": []
@@ -869,7 +987,18 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/user_store/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user_store",
+								"1",
+								""
+							]
 						}
 					},
 					"response": []
@@ -879,8 +1008,27 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user_id\": 1,\r\n  \"store_id\": \"1\",\r\n  \"is_active\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/user_store/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user_store",
+								""
+							]
 						}
 					},
 					"response": []
@@ -890,8 +1038,28 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user_id\": \"1\",\r\n  \"store_id\": \"2\",\r\n  \"is_active\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/user_store/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user_store",
+								"1",
+								""
+							]
 						}
 					},
 					"response": []
@@ -902,7 +1070,18 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/user_store/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user_store",
+								"1",
+								""
+							]
 						}
 					},
 					"response": []
@@ -918,7 +1097,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/customer/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customer",
+								""
+							]
 						}
 					},
 					"response": []
@@ -929,7 +1118,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/customer/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customer",
+								""
+							]
 						}
 					},
 					"response": []
@@ -939,8 +1138,27 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"John Doe\",\r\n    \"contact_no\": \"+923001234567\",\r\n    \"address\": \"123 Main Street, City, Country\",\r\n    \"is_active\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/customer/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customer",
+								""
+							]
 						}
 					},
 					"response": []
@@ -951,7 +1169,17 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/customer/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customer",
+								""
+							]
 						}
 					},
 					"response": []
@@ -962,7 +1190,17 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/customer/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customer",
+								""
+							]
 						}
 					},
 					"response": []

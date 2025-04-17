@@ -22,7 +22,7 @@ class UserStore(models.Model):
     updated_by   = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='user_store_updated', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
-        return f'{self.setting.AUTH_USER_MODEL.first_name} - {self.store.title}'
+        return f'{self.user.name} - {self.store.title}'
 
     class Meta:
         db_table = 'user_store'
