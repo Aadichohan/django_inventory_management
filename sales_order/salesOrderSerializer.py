@@ -8,6 +8,7 @@ class SalesOrderSerializer(serializers.ModelSerializer):
 
     customer_id = serializers.CharField()
     product_id  = serializers.CharField()
+    product_id  = serializers.CharField()
 
     customer_data = CustomerSerializer(source='customer', read_only=True)
     product_data  = ProductSerializer(source='product', read_only=True)
