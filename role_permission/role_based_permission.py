@@ -6,7 +6,7 @@ class RoleBasedPermission(BasePermission):
 
     def has_permission(self, request, view):
         user = request.user
-        print('userpermission: ', user)
+        print('RoleBasedPermission: ', user)
 
         if not user or not hasattr(user, 'role'):
             return False

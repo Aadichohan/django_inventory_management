@@ -7,7 +7,7 @@ from datetime import datetime
 from role.models import Role
 from role.roleSerializer import RoleSerializer
 from django_inventory_management.response import DrfResponse
-from role_permission.old_role_based_permission import RoleBasedPermission
+from role_permission.role_based_permission import RoleBasedPermission
 
 
 class RoleViewSet(ModelViewSet):

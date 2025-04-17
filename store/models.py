@@ -5,7 +5,7 @@ from django.conf import settings
 class Store(models.Model):
     id = models.AutoField(primary_key=True)
     title       = models.CharField(max_length=255)
-    loaction    = models.CharField(max_length=255)
+    location    = models.CharField(max_length=255)
     description = models.TextField(max_length=500, null=True, blank=True)
     is_active   = models.BooleanField(default=True)
     created_at  = models.DateTimeField(auto_now_add=True)

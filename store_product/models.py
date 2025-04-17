@@ -30,7 +30,7 @@ class StoreProduct(models.Model):
     updated_by   = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='product_store_updated', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
-        return f'{self.product.name} - {self.store.name}'
+        return f'{self.product.title} - {self.store.title}'
     
 
     class Meta:
