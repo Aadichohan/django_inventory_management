@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'user', 
     'user_store',
     'role', 
+    'endpoint_master',
     'role_permission',
     'customer',
     'supplier',

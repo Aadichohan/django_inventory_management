@@ -1,37 +1,47 @@
 from rest_framework.permissions import BasePermission
-from .models import RolePermission
+from .models import RolePermission, EndpointMaster
+from django.db.models import Q
 
 class RoleBasedPermission(BasePermission):
-    message = "You do not have role-based permission to perform this action."
+    message = "You do not have permission to perform this action."
 
     def has_permission(self, request, view):
         user = request.user
-        print('RoleBasedPermission: ', user)
-
         if not user or not hasattr(user, 'role'):
             return False
 
-        # ✅ Admin full access
+        # ✅ Admin bypass
         if getattr(user, 'role_id', None) == 1:
             return True
 
         role = user.role
-        model_name = getattr(view.queryset.model, '__name__', '').lower()
-
-        method_action_map = {
-            'GET': 'view',
-            'POST': 'create',
-            'PUT': 'update',
-            'PATCH': 'update',
-            'DELETE': 'delete',
-        }
-
-        action = method_action_map.get(request.method)
-        if not action:
+        path = request.path
+        method = request.method.upper()
+        print('p ',path)
+        try:
+            endpoint = EndpointMaster.objects.get(endpoint=path, is_active=True)
+        except EndpointMaster.DoesNotExist:
             return False
 
-        return RolePermission.objects.filter(
+        # permission = RolePermission.objects.filter(
+        #     role=role,
+        #     endpoint=endpoint,
+        #     # allowed_methods__contains=[method],
+        #     is_active=True
+        # ).exists()
+
+        permissions = RolePermission.objects.filter(
             role=role,
-            model=model_name,
-            action=action
-        ).exists()
+            endpoint=endpoint,
+            is_active=True
+        )
+
+        permission = any(method in perm.allowed_methods for perm in permissions)
+        # print('permission', permission)
+        return permission
+        # return RolePermission.objects.filter(
+        #     role=role,
+        #     endpoint_master=endpoint,
+        #     allowed_methods__contains=[method],
+        #     is_active=True
+        # ).exists()

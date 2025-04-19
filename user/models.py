@@ -46,7 +46,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     name = models.CharField(max_length=100)
     # role_id = models.CharField(max_length=20, choices=[('admin', 'Admin'), ('manager', 'Manager'), ('staff', 'Staff')])
-    # role = models.ForeignKey('Role', on_delete=models.SET_NULL, null=True, blank=True)
+    # role = models.ForeignKey(Role, on_delete=models.SET_NULL, null=True, blank=True)
     role = models.ForeignKey(Role, on_delete=models.CASCADE, related_name='user_role', default=3)
 
 

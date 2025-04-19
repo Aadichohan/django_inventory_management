@@ -29,6 +29,7 @@ urlpatterns = [
     path('', include('user_store.urls')),
     path('', include('role.urls')),
     path('', include('role_permission.urls')),
+    path('', include('endpoint_master.urls')),
     path('', include('customer.urls')),
     path('', include('supplier.urls')),
     path('', include('purchase_order.urls')),
