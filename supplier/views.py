@@ -104,11 +104,16 @@ class SupplierViewSet(ModelViewSet):
 
     def destroy(self, request, pk=None):
         supplier = self.get_object()
-        # supplier.delete()
-        supplier_serializer = self.get_serializer(supplier, data= request.data)
         user = self.request.user
+        # supplier.delete()
+        data = {
+            "is_active": 0,
+            "updated_by": user.pk,
+            "updated_at": datetime.utcnow()
+        }
+        supplier_serializer = self.get_serializer(supplier, data= request.data, partial = True)
         if supplier_serializer.is_valid():
-            supplier_serializer.save(updated_by= user, updated_at=datetime.utcnow(), is_active = 0)
+            supplier_serializer.save()
         return DrfResponse( 
          
             status  = status.HTTP_204_NO_CONTENT, 

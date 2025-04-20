@@ -135,10 +135,10 @@ class SalesOrderViewSet(ModelViewSet):
                 sales_order_quantity = sales_order.quantity
                 sales_order = sales_order_serializer.save(updated_by= user, updated_at=timezone.now())
                 # final_quantity = 0
-                print('sales_order.quantity > quantity',sales_order_quantity > quantity)
-                print('sales_order.quantity < quantity',sales_order_quantity < quantity)
-                print('sales_order.quantity',sales_order_quantity )
-                print('quantity', quantity )
+                # print('sales_order.quantity > quantity',sales_order_quantity > quantity)
+                # print('sales_order.quantity < quantity',sales_order_quantity < quantity)
+                # print('sales_order.quantity',sales_order_quantity )
+                # print('quantity', quantity )
                 if sales_order_quantity > quantity:
                     remaining_quantity =sales_order_quantity - quantity
                     final_quantity = store_product.quantity + remaining_quantity
@@ -200,11 +200,16 @@ class SalesOrderViewSet(ModelViewSet):
 
     def destroy(self, request, pk=None):
         sales_order = self.get_object()
-        # sales_order.delete()
-        sales_order_serializer = self.get_serializer(sales_order, data= request.data)
         user = self.request.user
+        # sales_order.delete()
+        data = {
+            "is_active": 0,
+            "updated_by": user.pk,
+            "updated_at": datetime.utcnow()
+        }
+        sales_order_serializer = self.get_serializer(sales_order, data= data, partial=True)
         if sales_order_serializer.is_valid():
-            sales_order_serializer.save(updated_by= user, updated_at=datetime.utcnow(), is_active = 0)
+            sales_order_serializer.save()
         return DrfResponse( 
          
             status  = status.HTTP_204_NO_CONTENT, 

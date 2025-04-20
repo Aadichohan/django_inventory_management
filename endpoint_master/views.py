@@ -105,11 +105,16 @@ class EndpointMasterViewSet(ModelViewSet):
 
     def destroy(self, request, pk=None):
         endpoint = self.get_object()
-        # endpoint.delete()
-        endpoint_serializer = self.get_serializer(endpoint, data= request.data)
         user = self.request.user
+        # endpoint.delete()
+        data = {
+                "is_active": 0,
+                "updated_by": user.pk,
+                "updated_at": datetime.utcnow()
+            }
+        endpoint_serializer = self.get_serializer(endpoint, data= data, partial=True)
         if endpoint_serializer.is_valid():
-            endpoint_serializer.save(updated_by= user, updated_at=datetime.utcnow(), is_active = 0)
+            endpoint_serializer.save()
         return DrfResponse( 
          
             status  = status.HTTP_204_NO_CONTENT, 

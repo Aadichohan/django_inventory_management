@@ -104,11 +104,17 @@ class CustomerViewSet(ModelViewSet):
 
     def destroy(self, request, pk=None):
         customer = self.get_object()
-        # customer.delete()
-        customer_serializer = self.get_serializer(customer, data= request.data)
         user = self.request.user
+        data = {
+            "is_active": 0,
+            "updated_by": user.pk,
+            "updated_at": datetime.utcnow()
+        }
+        # customer.delete()
+        customer_serializer = self.get_serializer(customer, data= data, partial=True)
         if customer_serializer.is_valid():
-            customer_serializer.save(updated_by= user, updated_at=datetime.utcnow(), is_active = 0)
+            customer_serializer.save()
+            # customer_serializer.save(updated_by= user, updated_at=datetime.utcnow(), is_active = 0)
         return DrfResponse( 
          
             status  = status.HTTP_204_NO_CONTENT, 

@@ -105,11 +105,16 @@ class RoleViewSet(ModelViewSet):
 
     def destroy(self, request, pk=None):
         role = self.get_object()
-        # role.delete()
-        role_serializer = self.get_serializer(role, data= request.data)
         user = self.request.user
+        data = {
+            "is_active": 0,
+            "updated_by": user.pk,
+            "updated_at": datetime.utcnow()
+        }
+        # role.delete()
+        role_serializer = self.get_serializer(role, data= data, partial=True)
         if role_serializer.is_valid():
-            role_serializer.save(updated_by= user, updated_at=datetime.utcnow(), is_active = 0)
+            role_serializer.save()
         return DrfResponse( 
          
             status  = status.HTTP_204_NO_CONTENT, 

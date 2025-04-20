@@ -10,10 +10,10 @@ class RoleBasedPermission(BasePermission):
         if not user or not hasattr(user, 'role'):
             return False
 
+        print(  getattr(user, 'role_id', None))
         # ✅ Admin bypass
         if getattr(user, 'role_id', None) == 1:
             return True
-
         role = user.role
         path = request.path
         method = request.method.upper()

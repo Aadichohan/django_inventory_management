@@ -28,7 +28,79 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "getAll",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/category/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"category",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 20 Apr 2025 07:31:31 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-New-Access-Token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1MTM0NDExLCJpYXQiOjE3NDUwNzQzMjgsImp0aSI6Ijc2ZjRlM2FjOWViNTQ5OTlhZWRmMTA5OWU3ODc5NDRjIiwidXNlcl9pZCI6NH0.IUaGFKIhkYsJTPo9Mj0mbwna7S0fhGqwbawyeJ7neiY"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "173"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Men's Perfume\",\n            \"description\": null,\n            \"is_active\": true,\n            \"created_at\": \"2025-04-20T07:21:21.426431Z\",\n            \"created_by\": 4,\n            \"updated_at\": null,\n            \"updated_by\": null\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "getAllOne",
@@ -38,16 +110,18 @@
 							{
 								"key": "X-Refresh-Token",
 								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0NDk3MDk4NCwiaWF0IjoxNzQ0ODg0NTg0LCJqdGkiOiJlY2U5NTUyMGE0NWY0ODEzYTI4N2MyMGU5ZTExODYwNyIsInVzZXJfaWQiOjF9.kI961jzMIiOHwuJdBEviSGskHe3oON7TUZpE3EoJ_3w",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							},
 							{
 								"key": "Authorization",
 								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0ODg0NzA0LCJpYXQiOjE3NDQ4ODQ1ODQsImp0aSI6IjNkYmJlMTBmZGYwZTRhMWU4Yjc5ZjM3YjhjMmI0ZmI4IiwidXNlcl9pZCI6MX0.hXQYX0kAFdL6TLDdZKET6v-LZyvEbkuTLCzlIP9MKXE",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/api/category/2",
+							"raw": "http://localhost:8000/api/category/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -56,7 +130,7 @@
 							"path": [
 								"api",
 								"category",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -69,7 +143,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n    \"title\":\"Men's Fashaion\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -97,8 +171,28 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Men's Perfumes\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/category/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"category",
+								"1",
+								""
+							]
 						}
 					},
 					"response": []
@@ -108,8 +202,28 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/category/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"category",
+								"1",
+								""
+							]
 						}
 					},
 					"response": []
@@ -159,7 +273,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/product/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"product",
+								""
+							]
 						}
 					},
 					"response": []
@@ -169,8 +293,27 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Oud 2.0\",\r\n    \"unit_price\":500,\r\n    \"sku\": \"Nz1\",\r\n    \"category_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/product/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"product",
+								""
+							]
 						}
 					},
 					"response": []
@@ -180,8 +323,28 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Oud 1.0\",\r\n    \"unit_price\":500,\r\n    \"sku\": \"Nz\",\r\n    \"category_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/product/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"product",
+								"1",
+								""
+							]
 						}
 					},
 					"response": []
@@ -192,7 +355,18 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/product/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"product",
+								"1",
+								""
+							]
 						}
 					},
 					"response": []
@@ -242,7 +416,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/endpoint/",
+							"raw": "http://localhost:8000/api/endpoint/1/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -251,6 +425,7 @@
 							"path": [
 								"api",
 								"endpoint",
+								"1",
 								""
 							]
 						}
@@ -264,7 +439,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"model\": \"sales_order\",\r\n  \"endpoint\": \"/api/sales_order/\",\r\n  \"is_active\": true\r\n}\r\n",
+							"raw": "{\r\n  \"title\": \"sales_orders\",\r\n  \"model\": \"sales_orders\",\r\n  \"endpoint\": \"/api/sales_orders/\",\r\n  \"is_active\": true\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -324,7 +499,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/endpoint/",
+							"raw": "http://localhost:8000/api/endpoint/1/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -333,6 +508,7 @@
 							"path": [
 								"api",
 								"endpoint",
+								"1",
 								""
 							]
 						}
@@ -367,9 +543,21 @@
 				},
 				{
 					"name": "getAllOne",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:8000/api/store/1",
 							"protocol": "http",
@@ -393,7 +581,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"title\": \"Millenzy Karachi FB Area Outlet\",\r\n  \"location\": \"Gulberg, Karachi\",\r\n  \"description\": \"Main branch of Millenzy for perfumes and personal care products.\",\r\n  \"is_active\": true\r\n}\r\n",
+							"raw": "{\r\n  \"title\": \"Levies Karachi Gulshan e Iqbal Outlet\",\r\n  \"location\": \"Gulberg, Karachi\",\r\n  \"description\": \"Main branch of Levies for perfumes and personal care products.\",\r\n  \"is_active\": true\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -423,7 +611,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"title\": \"Millenzy Karachi Outlet\",\r\n  \"location\": \"Gulberg, Karachi\",\r\n  \"description\": \"Main branch of Millenzy for perfumes and personal care products.\",\r\n  \"is_active\": true\r\n}",
+							"raw": "{\r\n  \"title\": \"Levies Karachi Gulshan-e-Iqbal Outlet\",\r\n  \"location\": \"Gulberg, Karachi\",\r\n  \"description\": \"Main branch of Levies for perfumes and personal care products.\",\r\n  \"is_active\": true\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -431,7 +619,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/store/1/",
+							"raw": "http://localhost:8000/api/store/2/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -440,7 +628,7 @@
 							"path": [
 								"api",
 								"store",
-								"1",
+								"2",
 								""
 							]
 						}
@@ -453,7 +641,18 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/store/2/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"2",
+								""
+							]
 						}
 					},
 					"response": []
@@ -490,7 +689,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/store_product/1",
+							"raw": "http://localhost:8000/api/store_product/1/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -499,7 +698,8 @@
 							"path": [
 								"api",
 								"store_product",
-								"1"
+								"1",
+								""
 							]
 						}
 					},
@@ -512,7 +712,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"product_id\": \"1\",\r\n  \"store_id\": \"2\",\r\n  \"quantity\": 50,\r\n  \"custom_price\": 1499.99,\r\n  \"description\": \"Limited edition packaging for Kaarchi store\",\r\n  \"is_active\": true\r\n}\r\n",
+							"raw": "{\r\n  \"product_id\": \"1\",\r\n  \"store_id\": \"1\",\r\n  \"quantity\": 50,\r\n  \"custom_price\": 1499.99,\r\n  \"description\": \"Limited edition packaging for Karachi store\",\r\n  \"is_active\": true\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -572,7 +772,18 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/store_product/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store_product",
+								"1",
+								""
+							]
 						}
 					},
 					"response": []
@@ -649,7 +860,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"title\": \"Staff\",\r\n  \"is_active\": true\r\n}\r\n",
+							"raw": "{\r\n  \"title\": \"Cleaners\",\r\n  \"is_active\": true\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -685,7 +896,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"title\": \"Staffs\",\r\n  \"is_active\": true\r\n}\r\n",
+							"raw": "{\r\n  \"title\": \"Staff\",\r\n  \"is_active\": true\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -715,7 +926,18 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/role/3/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"role",
+								"3",
+								""
+							]
 						}
 					},
 					"response": []
@@ -742,7 +964,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -789,7 +1011,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/role_permission/?role_id=3",
+							"raw": "http://localhost:8000/api/role_permission/?role_id=2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -803,7 +1025,7 @@
 							"query": [
 								{
 									"key": "role_id",
-									"value": "3"
+									"value": "2"
 								}
 							]
 						}
@@ -822,7 +1044,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/api/role/3",
+							"raw": "http://localhost:8000/api/role/3/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -831,7 +1053,8 @@
 							"path": [
 								"api",
 								"role",
-								"3"
+								"3",
+								""
 							]
 						}
 					},
@@ -850,7 +1073,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"role_id\": \"2\",\r\n  \"endpoint_title\": \"sales_order\",\r\n  \"allowed_methods\": [\"GET\", \"POST\"],\r\n  \"is_active\": true\r\n}\r\n",
+							"raw": "{\r\n  \"role_id\": \"2\",\r\n  \"endpoint_title\": \"sales_orders\",\r\n  \"allowed_methods\": [\"GET\", \"POST\"],\r\n  \"is_active\": true\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -886,7 +1109,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"title\": \"Staffs\",\r\n  \"is_active\": true\r\n}\r\n",
+							"raw": "{\r\n  \"role_id\": \"2\",\r\n  \"endpoint_title\": \"sales_order\",\r\n  \"allowed_methods\": [\"GET\", \"POST\", \"PUT\"],\r\n  \"is_active\": true\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -894,7 +1117,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/role/3/",
+							"raw": "http://localhost:8000/api/role_permission/3/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -902,7 +1125,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"role",
+								"role_permission",
 								"3",
 								""
 							]
@@ -916,7 +1139,18 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/role_permission/13/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"role_permission",
+								"13",
+								""
+							]
 						}
 					},
 					"response": []
@@ -953,7 +1187,18 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/user/3/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"3",
+								""
+							]
 						}
 					},
 					"response": []
@@ -979,13 +1224,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/user/",
+							"raw": "http://localhost:8000/api/user/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
+								"api",
 								"user",
 								""
 							]
@@ -1000,7 +1246,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"manager1@gmail.com\",\r\n  \"name\": \"Manager 1\",\r\n  \"password\": \"admin@123\",\r\n  \"role_id\": 2\r\n}\r\n",
+							"raw": "{\r\n  \"email\": \"manager3@gmail.com\",\r\n  \"name\": \"Manager 3\",\r\n  \"password\": \"admin@123\",\r\n  \"role_id\": 2\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1008,13 +1254,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/user/register/",
+							"raw": "http://localhost:8000/api/user/register/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
+								"api",
 								"user",
 								"register",
 								""
@@ -1044,15 +1291,16 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/user/10/",
+							"raw": "http://localhost:8000/api/user/3/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
+								"api",
 								"user",
-								"10",
+								"3",
 								""
 							]
 						}
@@ -1072,7 +1320,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"new_password\": \"admin@12\",\r\n  \"confirm_password\": \"admin@12\"\r\n}",
+							"raw": "{\r\n    \"new_password\": \"admin@123\",\r\n    \"confirm_password\": \"admin@123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1080,15 +1328,16 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/user/10/reset-password/",
+							"raw": "http://localhost:8000/api/user/3/reset-password/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
+								"api",
 								"user",
-								"10",
+								"3",
 								"reset-password",
 								""
 							]
@@ -1102,7 +1351,18 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/user/3/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"3",
+								""
+							]
 						}
 					},
 					"response": []
@@ -1270,7 +1530,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/customer/",
+							"raw": "http://localhost:8000/api/customer/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1279,7 +1539,7 @@
 							"path": [
 								"api",
 								"customer",
-								""
+								"1"
 							]
 						}
 					},
@@ -1292,7 +1552,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"John Doe\",\r\n    \"contact_no\": \"+923001234567\",\r\n    \"address\": \"123 Main Street, City, Country\",\r\n    \"is_active\": true\r\n}\r\n",
+							"raw": "{\r\n    \"name\": \"John Paul\",\r\n    \"contact_no\": \"+923001234567\",\r\n    \"address\": \"123 Main Street, City, Country\",\r\n    \"is_active\": true\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1320,8 +1580,17 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Paul\",\r\n    \"contact_no\": \"+923001234567\",\r\n    \"address\": \"123 Main Street, City, Country\",\r\n    \"is_active\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:8000/api/customer/",
+							"raw": "http://localhost:8000/api/customer/2/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1330,6 +1599,7 @@
 							"path": [
 								"api",
 								"customer",
+								"2",
 								""
 							]
 						}
@@ -1342,7 +1612,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/customer/",
+							"raw": "http://localhost:8000/api/customer/2/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1351,6 +1621,7 @@
 							"path": [
 								"api",
 								"customer",
+								"2",
 								""
 							]
 						}
@@ -1412,7 +1683,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Sayyam\",\r\n    \"contact_no\": \"+923001234567\",\r\n    \"address\": \"123 Main Street, City, Country\",\r\n    \"is_active\": true\r\n}\r\n",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Hashim\",\r\n    \"contact_no\": \"+923001234567\",\r\n    \"address\": \"123 Main Street, City, Country\",\r\n    \"is_active\": true\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1472,7 +1743,18 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/supplier/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supplier",
+								"1",
+								""
+							]
 						}
 					},
 					"response": []
@@ -1521,7 +1803,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/purchase_order/5",
+							"raw": "http://localhost:8000/api/purchase_order/1/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1530,7 +1812,8 @@
 							"path": [
 								"api",
 								"purchase_order",
-								"5"
+								"1",
+								""
 							]
 						}
 					},
@@ -1571,8 +1854,17 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"supplier_id\": \"1\",\r\n  \"product_id\": \"1\",\r\n  \"store_id\": \"1\",\r\n  \"quantity\": 15,\r\n  \"unit_price\": 12.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:8000/api/purchase_order/",
+							"raw": "http://localhost:8000/api/purchase_order/1/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1581,6 +1873,7 @@
 							"path": [
 								"api",
 								"purchase_order",
+								"1",
 								""
 							]
 						}
@@ -1593,7 +1886,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/purchase_order/",
+							"raw": "http://localhost:8000/api/purchase_order/1/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1602,6 +1895,7 @@
 							"path": [
 								"api",
 								"purchase_order",
+								"1",
 								""
 							]
 						}
@@ -1640,7 +1934,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/sales_order/3",
+							"raw": "http://localhost:8000/api/sales_order/1/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1649,7 +1943,8 @@
 							"path": [
 								"api",
 								"sales_order",
-								"3"
+								"1",
+								""
 							]
 						}
 					},
@@ -1700,7 +1995,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/sales_order/3/",
+							"raw": "http://localhost:8000/api/sales_order/1/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1709,7 +2004,7 @@
 							"path": [
 								"api",
 								"sales_order",
-								"3",
+								"1",
 								""
 							]
 						}
@@ -1722,7 +2017,18 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8000/api/sales_order/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"sales_order",
+								"1",
+								""
+							]
 						}
 					},
 					"response": []
@@ -1739,7 +2045,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"manager1@gmail.com\",\r\n    \"password\": \"admin@123\"\r\n}",
+							"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"admin@123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

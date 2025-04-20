@@ -105,11 +105,17 @@ class CategoryViewSet(ModelViewSet):
 
     def destroy(self, request, pk=None):
         category = self.get_object()
-        # category.delete()
-        category_serializer = self.get_serializer(category, data= request.data)
         user = self.request.user
+        # category.delete()
+        data = {
+            "is_active": 0,
+            "updated_by": user.pk,
+            "updated_at": datetime.utcnow()
+        }
+        category_serializer = self.get_serializer(category, data= data, partial=True)
         if category_serializer.is_valid():
-            category_serializer.save(updated_by= user, updated_at=datetime.utcnow(), is_active = 0)
+            category_serializer.save()
+            # category_serializer.save(updated_by= user, updated_at=datetime.utcnow(), is_active = 0)
         return DrfResponse( 
          
             status  = status.HTTP_204_NO_CONTENT, 

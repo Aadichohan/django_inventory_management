@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.conf import settings
 from role.models import Role
@@ -38,10 +39,29 @@ class RolePermission(models.Model):
 
     class Meta:
         db_table = 'role_permission'
-        unique_together = ('role', 'endpoint')
+        # unique_together = ('role', 'endpoint')
 
     def __str__(self):
         return f"{self.role} - {self.endpoint.endpoint}"
+    
+    def clean(self):
+        if self.role_id and self.endpoint_id:
+            # Only check if both values are present
+            existing = RolePermission.objects.filter(
+                role=self.role,
+                endpoint=self.endpoint,
+            )
+            if self.pk:
+                # Exclude self on update
+                existing = existing.exclude(pk=self.pk)
+                # print('existing ', existing)
+            if existing.exists():
+                # pass
+                raise ValidationError("This role-endpoint combination already exists.")
+
+    def save(self, *args, **kwargs):
+        self.clean()  # ensure clean is called on save too
+        super().save(*args, **kwargs)
 
 
 # class RolePermission(models.Model):

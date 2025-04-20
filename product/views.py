@@ -106,12 +106,17 @@ class ProductViewSet(ModelViewSet):
 
     def destroy(self, request, pk=None):
         product = self.get_object()
-        # product.delete()
-        product_serializer = self.get_serializer(product, data= request.data)
         user = self.request.user
-        # if product_serializer.is_valid():
-        print('stop')
-        product_serializer.save(updated_by= user, updated_at=datetime.utcnow(), is_active = 1)
+        data = {
+            "is_active": 0,
+            "updated_by": user.pk,
+            "updated_at": datetime.utcnow()
+        }
+        # product.delete()
+        product_serializer = self.get_serializer(product, data= data, partial=True)
+        if product_serializer.is_valid():
+            # print('stop')
+            product_serializer.save()
         return DrfResponse( 
          
             status  = status.HTTP_204_NO_CONTENT, 

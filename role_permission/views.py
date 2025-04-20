@@ -101,16 +101,36 @@ class RolePermissionViewSet(ModelViewSet):
             headers={}
         ).to_json()
 
-    def destroy(self, request, pk=None):
-        instance = self.get_object()
-        instance.is_active = 0
-        instance.updated_by = self.request.user
-        instance.updated_at = datetime.utcnow()
-        instance.save()
+    # def destroy(self, request, pk=None):
+    #     instance = self.get_object()
+    #     instance.is_active = 0
+    #     instance.updated_by = self.request.user
+    #     instance.updated_at = datetime.utcnow()
+    #     instance.save()
 
-        return DrfResponse(
-            status=status.HTTP_204_NO_CONTENT,
-            error={},
-            response={'response': 'role_permission deleted successfully'},
-            headers={}
+    #     return DrfResponse(
+    #         status=status.HTTP_204_NO_CONTENT,
+    #         error={},
+    #         response={'response': 'role_permission deleted successfully'},
+    #         headers={}
+    #     ).to_json()
+
+    def destroy(self, request, pk=None):
+        role_permission = self.get_object()
+        user = self.request.user
+        data = {
+            "is_active": 0,
+            "updated_by": user.pk,
+            "updated_at": datetime.utcnow()
+        }
+        # role.delete()
+        role_serializer = self.get_serializer(role_permission, data= data, partial=True)
+        if role_serializer.is_valid():
+            role_serializer.save()
+        return DrfResponse( 
+         
+            status  = status.HTTP_204_NO_CONTENT, 
+            error   = {}, 
+            response = {'response': 'role_permission deleted successfully'},
+            headers = {}
         ).to_json()

@@ -104,11 +104,16 @@ class StoreViewSet(ModelViewSet):
 
     def destroy(self, request, pk=None):
         store = self.get_object()
-        # store.delete()
-        store_serializer = self.get_serializer(store, data= request.data)
         user = self.request.user
+        data = {
+            "is_active": 0,
+            "updated_by": user.pk,
+            "updated_at": datetime.utcnow()
+        }
+        # store.delete()
+        store_serializer = self.get_serializer(store, data= data, partial=True)
         if store_serializer.is_valid():
-            store_serializer.save(updated_by= user, updated_at=datetime.utcnow(), is_active = 0)
+            store_serializer.save()
         return DrfResponse( 
          
             status  = status.HTTP_204_NO_CONTENT, 

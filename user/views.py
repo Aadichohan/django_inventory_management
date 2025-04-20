@@ -2,6 +2,8 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework import status
+from datetime import datetime
+from django.utils import timezone
 
 from user.models import User
 from user.userSerializer import UserSerializer
@@ -172,14 +174,61 @@ class UserViewSet(ModelViewSet):
             headers={}
         ).to_json()
 
+    # def destroy(self, request, pk=None):
+    #     user = self.get_object()
+    #     user.is_active = False
+    #     user.save(updated_by=request.user, updated_at=timezone.now())
+    #     return DrfResponse(
+    #         data=[],
+    #         status=status.HTTP_204_NO_CONTENT,
+    #         response={"response": "User deleted successfully"},
+    #         error={},
+    #         headers={}
+    #     ).to_json()
+
+    # def destroy(self, request, pk=None):
+    #     user = self.get_object()
+    #     # purchase_order.delete()
+    #     user_serializer = self.get_serializer(user, data= request.data)
+    #     user = self.request.user
+    #     if user_serializer.is_valid():
+    #         user_serializer.save(updated_by= user, updated_at=datetime.utcnow(), is_active = 0)
+    #     return DrfResponse( 
+         
+    #         status  = status.HTTP_204_NO_CONTENT, 
+    #         error   = {}, 
+    #         response = {'response': 'user deleted successfully'},
+    #         headers = {}
+    #     ).to_json()
+
+
     def destroy(self, request, pk=None):
-        user = self.get_object()
-        user.is_active = False
-        user.save(updated_by=request.user)
-        return DrfResponse(
-            data=[],
-            status=status.HTTP_204_NO_CONTENT,
-            response={"response": "User deleted successfully"},
-            error={},
-            headers={}
-        ).to_json()
+        user = self.get_object()  # get the object to delete
+        current_user = request.user   # who is performing the delete
+
+        # We are doing a partial update with soft delete flag
+        serializer = self.get_serializer(user, data={
+            "is_active": 0,
+            "updated_by": current_user.pk,
+            "updated_at": datetime.utcnow()
+        }, partial=True)
+        # print( {
+        #     "is_active": 0,
+        #     "updated_by": current_user.pk,
+        #     "updated_at": datetime.utcnow()
+        # })
+        if serializer.is_valid():
+            serializer.save()
+            return DrfResponse(
+                status=status.HTTP_204_NO_CONTENT,
+                error={},
+                response={'response': 'User deleted successfully'},
+                headers={}
+            ).to_json()
+        else:
+            return DrfResponse(
+                status=status.HTTP_400_BAD_REQUEST,
+                error=serializer.errors,
+                response={"response": "Invalid data while deleting"},
+                headers={}
+            ).to_json()
